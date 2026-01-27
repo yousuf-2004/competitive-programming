@@ -4,3 +4,5 @@ node_modules/
 *.db
 dist/
 build/
+*.bin
+bin/
