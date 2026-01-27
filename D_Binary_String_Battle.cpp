@@ -12,40 +12,37 @@ using namespace std;
 
 void solve()
 {
-      int n, k;
-        cin >> n >> k;
-        string s;
-        cin >> s;
+    int n, k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
 
-        // 1) If already all zeros → Alice
-        if (s.find('1') == string::npos) {
-            cout << "Alice\n";
-            return;
+    int cnt = 0;
+    for (auto c : s)
+    {
+        if (c == '1')
+        {
+            cnt++;
         }
+    }
 
-        // 2) Check for any length-k substring of all '0'
-        int zeroCount = 0;
-        bool bobWins = false;
-        for (int i = 0; i < n; i++) {
-            if (s[i] == '0') zeroCount++;
-            if (i >= k && s[i - k] == '0') zeroCount--;
-            if (i >= k - 1 && zeroCount == k) {
-                bobWins = true;
-                break;
-            }
-        }
-
-        cout << (bobWins ? "Bob\n" : "Alice\n");
-
+    if (cnt <= k || n < 2 * k)
+    {
+        cout << "Alice\n";
+    }
+    else
+    {
+        cout << "Bob\n";
+    }
 }
 
 signed main()
 {
-      ios_base::sync_with_stdio(false);
-      cin.tie(NULL);
-      int t = 1;
-      cin >> t;
-      while (t--)
-            solve();
-      return 0;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t = 1;
+    cin >> t;
+    while (t--)
+        solve();
+    return 0;
 }

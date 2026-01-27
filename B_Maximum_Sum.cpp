@@ -9,7 +9,6 @@ using namespace std;
 
         Stay Hungry;
 */
-int mod = 1e9 + 7;
 void solve()
 {
       int n, k;
@@ -19,20 +18,19 @@ void solve()
       {
             cin >> v[i];
       }
-      int ans = 0, cur = 0;
-      for (auto a : v)
+      sort(v.begin(), v.end());
+      vector<int> pref(n + 1, 0);
+      for (int i = 0; i < n; i++)
       {
-            cur += a;
-            ans = max(ans, cur);
-            cur = max(cur, 0ll);
+            pref[i + 1] = pref[i] + v[i];
       }
-      int finalans = (accumulate(v.begin(), v.end(), 0ll) % mod + mod) % mod;
-      for (int i = 0; i < k; i++)
+
+      int ans = 0;
+      for (int i = 0; i <= k; i++)
       {
-            finalans = (finalans + ans) % mod;
-            ans = (ans * 2) % mod;
+            ans = max(ans, pref[n - (k - i)] - pref[2 * i]);
       }
-      cout << finalans << endl;
+      cout << ans << '\n';
 }
 
 signed main()

@@ -14,18 +14,38 @@ void solve()
 {
       int n, x;
       cin >> n >> x;
-
-      int y = (n - 1) % 2 == 0 ? 0 : 1;
-      int last = x ^ y;
-
-      if (last != 0)
+      if (n == 1)
       {
-            cout << (n - 1) + last << endl;
+            if (x == 0)
+            {
+                  cout << -1 << '\n';
+            }
+            else
+            {
+                  cout << x << '\n';
+            }
+            return;
       }
-      else
+      int bits = __builtin_popcountll(x);
+      if (bits > n)
       {
-            cout << n + 3 << endl;
+            cout << x << '\n';
+            return;
       }
+      int ans = x + (n - bits);
+      if ((n - bits) % 2)
+      {
+            if (x == 0 || x == 1)
+            {
+                  ans += 3;
+            }
+            else
+            {
+                  ans++;
+            }
+      }
+
+      cout << ans << '\n';
 }
 
 signed main()
