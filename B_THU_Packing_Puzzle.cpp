@@ -9,23 +9,19 @@ using namespace std;
 
         Stay Hungry;
 */
-int f(int n)
-{
-      int cnt = 0;
-      while (n > 0)
-      {
-            cnt += n;
-            n /= 10;
-      }
-      return cnt;
-}
 
 void solve()
 {
-      int l, r;
-      cin >> l >> r;
-      int ans = f(r) - f(l);
-      cout << ans << '\n';
+      int t, h, u;
+      cin >> t >> h >> u;
+      if (t > h * 2 + u)
+      {
+            cout << (t * 2 + h * 3 + u * 2 + 1) << '\n';
+      }
+      else
+      {
+            cout << t * 2 + h * 3 + u * 3 - min(t, u) << '\n';
+      }
 }
 
 signed main()

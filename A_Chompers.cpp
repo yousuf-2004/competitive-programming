@@ -9,23 +9,18 @@ using namespace std;
 
         Stay Hungry;
 */
-int f(int n)
-{
-      int cnt = 0;
-      while (n > 0)
-      {
-            cnt += n;
-            n /= 10;
-      }
-      return cnt;
-}
 
 void solve()
 {
-      int l, r;
-      cin >> l >> r;
-      int ans = f(r) - f(l);
-      cout << ans << '\n';
+      string s;
+      cin >> s;
+      int n;
+      cin >> n;
+      for (int i = n; i < s.size() - n; i++)
+      {
+            cout << s[i];
+      }
+      cout << '\n';
 }
 
 signed main()
@@ -33,7 +28,7 @@ signed main()
       ios_base::sync_with_stdio(false);
       cin.tie(NULL);
       int t = 1;
-      cin >> t;
+      // cin >> t;
       while (t--)
             solve();
       return 0;

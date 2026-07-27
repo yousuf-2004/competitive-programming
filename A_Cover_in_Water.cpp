@@ -9,23 +9,21 @@ using namespace std;
 
         Stay Hungry;
 */
-int f(int n)
-{
-      int cnt = 0;
-      while (n > 0)
-      {
-            cnt += n;
-            n /= 10;
-      }
-      return cnt;
-}
 
 void solve()
 {
-      int l, r;
-      cin >> l >> r;
-      int ans = f(r) - f(l);
-      cout << ans << '\n';
+      int n;
+      cin >> n;
+      string s;
+      cin >> s;
+      if (s.find("...") != string::npos)
+      {
+            cout << 2 << "\n";
+      }
+      else
+      {
+            cout << count(s.begin(), s.end(), '.') << "\n";
+      }
 }
 
 signed main()

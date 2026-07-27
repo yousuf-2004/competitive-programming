@@ -9,23 +9,27 @@ using namespace std;
 
         Stay Hungry;
 */
-int f(int n)
-{
-      int cnt = 0;
-      while (n > 0)
-      {
-            cnt += n;
-            n /= 10;
-      }
-      return cnt;
-}
 
 void solve()
 {
-      int l, r;
-      cin >> l >> r;
-      int ans = f(r) - f(l);
-      cout << ans << '\n';
+      string s;
+      cin >> s;
+      int cnt = 0;
+      for (int i = 0; i < s.size() - 1; i++)
+      {
+            if (s[i] == s[i + 1])
+            {
+                  cnt++;
+            }
+      }
+      if (cnt > 2)
+      {
+            cout << "NO\n";
+      }
+      else
+      {
+            cout << "YES\n";
+      }
 }
 
 signed main()
